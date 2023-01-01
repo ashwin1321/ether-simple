@@ -6,9 +6,10 @@ async function main() {
     // compile the contract
     // http://127.0.0.1:7545     ==> local ganache rpc 
 
-    const provider = new ethers.providers.JsonRpcProvider('http://127.0.0.1:7545');     // connected to local blockchain
+    const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL);     // connected to local blockchain
 
-    const wallet = new ethers.Wallet(process.env.KEY,
+    const wallet = new ethers.Wallet(
+        process.env.KEY,
         provider); // private key of the account 
 
     // read the abi and bytecode from the compiled contract
