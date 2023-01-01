@@ -19,9 +19,10 @@ async function main() {
     const contractFactory = new ethers.ContractFactory(abi, binary, wallet); // contract factory 
     console.log("Deploying please wait....");
 
-    const contract = await contractFactory.deploy({ gasPrice: 100000000000 }); // deploy the contract: we can override functions as well
+    const contract = await contractFactory.deploy({ gasPrice: 100 }); // deploy the contract: we can override functions as well
 
     await contract.deployTransaction.wait(1); // wait for atleast 1 transaction to be mined
+    console.log(`contract deployed at address: ${contract.address}`);
 
     // // console.log(`here is the deployment transaction: `);
     // console.log(contract.deployTransaction)
